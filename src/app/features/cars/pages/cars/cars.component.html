@@ -1,0 +1,6 @@
+<p>cars works!</p>
+<ng-container *ngIf="carList$ | async as carList">
+  <ng-container *ngFor="let car of carList">
+    <p><a [routerLink]="['/car', car.id]">{{car.item}}</a></p>
+  </ng-container>
+</ng-container>

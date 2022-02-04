@@ -1,0 +1,33 @@
+.sidenav-container{
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__links {
+  display: flex;
+  list-style-type: none;
+
+}
+
+.sidenav__button {
+  display: block;
+}

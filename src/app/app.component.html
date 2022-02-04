@@ -1,0 +1,36 @@
+<!--<router-outlet></router-outlet>-->
+<mat-toolbar color="primary" role="heading">
+  <mat-toolbar-row class="header">
+    <div>
+      <span>Second Line</span>&nbsp;
+      <mat-icon aria-hidden="false" aria-label="Example user verified icon">verified_user
+      </mat-icon>
+    </div>
+    <ul class="header__links">
+      <li>
+        <button mat-button routerLink="about">About</button>
+      </li>
+      <li>
+        <button mat-button routerLink="home">Assets</button>
+      </li>
+      <li>
+        <button mat-button routerLink="admin">Admin</button>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav opened mode="side" class="sidenav-container__sidenav">
+    <button mat-button class="sidenav__button" routerLink="cars">Cars</button>
+    <button mat-button class="sidenav__button">Courses</button>
+
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-toolbar class="example-footer">Footer</mat-toolbar>
+
