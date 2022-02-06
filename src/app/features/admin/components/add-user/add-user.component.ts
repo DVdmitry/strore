@@ -17,7 +17,9 @@ export class AddUserComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log('User component')
+    this.userForm.valueChanges.subscribe(data => {
+      console.log(data)
+    })
   }
 
 }

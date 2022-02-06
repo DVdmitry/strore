@@ -4,3 +4,7 @@ export interface Car {
   isReady: boolean
 }
 
+export interface CarOrder {
+  title: string,
+  quantity: string
+}
