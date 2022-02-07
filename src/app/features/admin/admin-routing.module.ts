@@ -4,6 +4,8 @@ import {AdminComponent} from "./pages/admin/admin.component";
 import {AddUserComponent} from "./components/add-user/add-user.component";
 import {AddProductComponent} from "./components/add-product/add-product.component";
 import {AuthGuard} from "../../shared/guards/auth.guard";
+import {PermissionGuard} from "../../shared/guards/permission.guard";
+import {FormGuard} from "../../shared/guards/form.guard";
 
 const routes: Routes = [
   {
@@ -11,9 +13,19 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     children: [
-      {path: 'add-user', component: AddUserComponent},
-      {path: 'add-product', component: AddProductComponent}
+      {
+        path: '',
+        canActivateChild: [PermissionGuard],
+        children: [
+          {path: 'add-user', component: AddUserComponent},
+        ]
+      },
+      {
+        path: 'add-product',
+        canDeactivate: [FormGuard],
+        component: AddProductComponent}
     ]
+
   },
 ]
 

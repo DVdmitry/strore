@@ -12,4 +12,8 @@ export class AuthService {
     )
   }
 
+  hasPermission(): Observable<boolean> {
+    return of(false)
+  }
+
 }
