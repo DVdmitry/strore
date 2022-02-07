@@ -2,7 +2,7 @@ import {NgModule} from "@angular/core";
 import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/admin', pathMatch: 'full'},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'admin', loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule)},
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)},
   { path: 'cars', loadChildren: () => import('./features/cars/car.module').then(m => m.CarModule)},

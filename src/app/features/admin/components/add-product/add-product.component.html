@@ -1,7 +1,7 @@
 <p>Product Item</p>
 
 <form [formGroup]="productForm">
-  <input matInput type="text" formControlName="title">
-  <input matInput type="number" formControlName="quantity">
-  <button mat-button (click)="saveCar()">Save</button>
+    <input matInput type="text" placeholder="Title" formControlName="title">
+    <input matInput type="number" placeholder="Quantity" formControlName="quantity">
+  <button mat-raised-button (click)="saveCar()">Save</button>
 </form>
