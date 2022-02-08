@@ -5,18 +5,23 @@ import {
   RouterStateSnapshot,
   UrlTree
 } from "@angular/router";
-import {Observable} from "rxjs";
-import {AddProductComponent} from "../../features/admin/components/add-product/add-product.component";
+import {Observable, of} from "rxjs";
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmDialogComponent} from "../../features/admin/components/confirm-dialog/confirm-dialog.component";
+import {SaveDataInterface} from "./save-data.interface";
 
 @Injectable({
   providedIn: 'root'
 })
 
-export class FormGuard implements CanDeactivate<AddProductComponent>{
-  canDeactivate(component: AddProductComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(component.productForm.dirty) {
-      return confirm('Are you sure');
+export class FormGuard implements CanDeactivate<SaveDataInterface>{
+  constructor(private dialog: MatDialog) {
+  }
+  canDeactivate(component: SaveDataInterface, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if(!component.isDataSaved()) {
+      const dialogRef = this.dialog.open(ConfirmDialogComponent)
+      return dialogRef.afterClosed()
     }
-    return true
+    return of(true)
   }
 }

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {SaveDataInterface} from "../../../../shared/guards/save-data.interface";
 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.scss']
 })
-export class AddUserComponent implements OnInit {
+export class AddUserComponent implements OnInit, SaveDataInterface {
   userForm: FormGroup
   constructor() {
     this.userForm = new FormGroup({
@@ -18,8 +19,11 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm.valueChanges.subscribe(data => {
-      console.log(data)
     })
+  }
+
+  isDataSaved(): boolean {
+    return !this.userForm.dirty
   }
 
 }

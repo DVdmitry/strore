@@ -9,6 +9,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import {AddProductComponent} from "./components/add-product/add-product.component";
 import {RouterModule} from "@angular/router";
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     ReactiveFormsModule,
     MatInputModule,
     AdminRoutingModule,
+    MatDialogModule,
   ],
   declarations: [
     AdminComponent,

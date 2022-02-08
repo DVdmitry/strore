@@ -13,11 +13,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {EffectsModule} from "@ngrx/effects";
 import {CarsEffects} from "./features/cars/state/cars.effects";
 import {environment} from "../environments/environment";
-import {AboutModule} from "./features/about/about.module";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
 import {HistoryModule} from "./features/history/history.module";
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import {HistoryModule} from "./features/history/history.module";
     MatButtonModule,
     MatIconModule,
     HttpClientModule,
+    MatDialogModule,
     StoreModule.forRoot({cars: carsReducer}),
     EffectsModule.forRoot([CarsEffects]),
     StoreDevtoolsModule.instrument({

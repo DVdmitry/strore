@@ -3,13 +3,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {saveCar} from "../../../cars/state/cars.actions";
 import {Store} from "@ngrx/store";
 import {CarResponse} from "../../../cars/state/cars.reducer";
+import {SaveDataInterface} from "../../../../shared/guards/save-data.interface";
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.scss']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent implements OnInit, SaveDataInterface {
   productForm: FormGroup
 
   constructor(
@@ -26,6 +27,10 @@ export class AddProductComponent implements OnInit {
 
   saveCar() {
     this.store.dispatch(saveCar(this.productForm.value))
+  }
+
+  isDataSaved(): boolean {
+    return !this.productForm.dirty;
   }
 
 }

@@ -17,7 +17,11 @@ const routes: Routes = [
         path: '',
         canActivateChild: [PermissionGuard],
         children: [
-          {path: 'add-user', component: AddUserComponent},
+          {
+            path: 'add-user',
+            canDeactivate: [FormGuard],
+            component: AddUserComponent
+          },
         ]
       },
       {
