@@ -7,7 +7,7 @@ import {delay, Observable, of} from "rxjs";
 
 export class AuthService {
   isLoggedIn(): Observable<boolean> {
-    return of(true).pipe(
+    return of(false).pipe(
       delay(1000)
     )
   }
