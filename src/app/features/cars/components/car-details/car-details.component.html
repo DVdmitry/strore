@@ -3,3 +3,10 @@
   <p>{{car.id}}</p>
   <p>{{car.item}}</p>
 </div>
+<ul class="drop-area" cdkDropList (cdkDropListDropped)="drop($event)"
+[cdkDropListData]="photos" cdkDrag>
+  <li *ngFor="let photo of photos" class="photo-container" cdkDrag>
+    <p>{{photo.title}}</p>
+    <p>{{photo.id}}</p>
+  </li>
+</ul>

@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {ActivatedRoute, ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
-import {catchError, EMPTY, Observable, of} from "rxjs";
+import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from "@angular/router";
+import {catchError, EMPTY, Observable} from "rxjs";
 import {select, Store} from "@ngrx/store";
 import {CarResponse} from "../state/cars.reducer";
 import {car} from "../state/cars.selector";
@@ -19,13 +19,11 @@ export class CarResolver implements Resolve<Car | undefined> {
         return EMPTY
       })
     )
-
   }
 
   constructor(
     private store: Store<{cars: CarResponse}>,
     private router: Router
-    // private route: ActivatedRoute
   ) {
   }
 }

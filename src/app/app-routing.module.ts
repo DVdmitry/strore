@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
-import {PreloadAllModules, RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {LoadGuard} from "./shared/guards/load.guard";
-import {AuthGuard} from "./shared/guards/auth.guard";
+import {CarsComponent} from "./features/cars/pages/cars/cars.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -12,7 +12,8 @@ const routes: Routes = [
     loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule)
   },
   { path: 'home', loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)},
-  { path: 'cars', loadChildren: () => import('./features/cars/car.module').then(m => m.CarModule)},
+  // { path: 'cars', loadChildren: () => import('./features/cars/car.module').then(m => m.CarModule)},
+  { path: 'cars', component: CarsComponent},
   { path: 'about', loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule)}
 ]
 

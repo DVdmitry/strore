@@ -4,6 +4,7 @@ import {CarsRoutingModule} from "./cars-routing.module";
 import {CarDetailsComponent} from "./components/car-details/car-details.component";
 import {CarsComponent} from "./pages/cars/cars.component";
 import {MatButtonModule} from "@angular/material/button";
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
     CommonModule,
     CarsRoutingModule,
     MatButtonModule,
+    DragDropModule,
   ],
   declarations: [
     CarDetailsComponent,

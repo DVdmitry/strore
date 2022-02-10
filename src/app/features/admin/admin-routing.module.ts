@@ -25,7 +25,8 @@ const routes: Routes = [
       {
         path: 'add-product',
         canDeactivate: [FormGuard],
-        component: AddProductComponent}
+        component: AddProductComponent
+      }
     ]
 
   },

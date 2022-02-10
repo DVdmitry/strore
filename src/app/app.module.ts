@@ -16,12 +16,19 @@ import {environment} from "../environments/environment";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
-import {HistoryModule} from "./features/history/history.module";
+import {HistoryModule} from "./features/about/components/history/history.module";
 import {MatDialogModule} from "@angular/material/dialog";
+import {CarModule} from "./features/cars/car.module";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { CloseFormComponent } from './shared/components/close-form/close-form.component';
+import {DynamicComponentDirective} from "./shared/directives/dynamic-component.directive";
+// import {APP_CONFIG, appConfig} from "./shared/config/config.token";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CloseFormComponent,
+    DynamicComponentDirective
   ],
   imports: [
     BrowserModule,
@@ -35,6 +42,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatIconModule,
     HttpClientModule,
     MatDialogModule,
+    CarModule,
+    DragDropModule,
     StoreModule.forRoot({cars: carsReducer}),
     EffectsModule.forRoot([CarsEffects]),
     StoreDevtoolsModule.instrument({
@@ -43,7 +52,9 @@ import {MatDialogModule} from "@angular/material/dialog";
       autoPause: true,
     }),
   ],
-  providers: [],
+  providers: [
+    // {provide: APP_CONFIG, useValue: appConfig}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
